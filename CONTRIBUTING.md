@@ -1,28 +1,28 @@
 <!--
-This file was generated from bswck/skeleton@bf2dfcf.
+This file was generated from skeleton-ci/skeleton-python@0.0.2rc-210-g3b97536.
 Instead of changing this particular file, you might want to alter the template:
-https://github.com/bswck/skeleton/tree/bf2dfcf/fragments/contributing.md
+https://github.com/skeleton-ci/skeleton-python/tree/0.0.2rc-210-g3b97536/fragments/contributing.md
 -->
-# Contributing to [project](https://github.com/bswck/project) 🎉
+# Contributing to [pj](https://github.com/bswck/pj) 🎉
 Contributions are very welcome. 🚀
 
-There are many ways to contribute, ranging from **writing tutorials and improving the documentation**, to **submitting bug reports and feature requests** or **writing code** which can be incorporated into project.
+There are many ways to contribute, ranging from **writing tutorials and improving the documentation**, to **submitting bug reports and feature requests** or **writing code** which can be incorporated into pj.
 
 ## Report bugs and request features 🐛
-Report these in the [issue tracker](https://github.com/bswck/project/issues).
+Report these in the [issue tracker](https://github.com/bswck/pj/issues).
 Relevant forms provide guidance on how to write a good bug report or feature request.
 
 ## Implement new features ⭐
-[Look here](https://github.com/bswck/project/issues?q=is%3Aopen+label%3Aenhancement+sort%3Aupdated-desc).
+[Look here](https://github.com/bswck/pj/issues?q=is%3Aopen+label%3Aenhancement+sort%3Aupdated-desc).
 Anything tagged with "enhancement" is open to whoever wants to implement it.
 
 ## Write documentation 📖
 The project could always use more documentation, whether as part of the official project
-docs. If you're interested in helping out, check the [docs/](https://github.com/bswck/project/tree/HEAD/docs)
+docs. If you're interested in helping out, check the [docs/](https://github.com/bswck/pj/tree/HEAD/docs)
 folder in the repository.
 
 ## Share your feedback 🌍
-The best way to send feedback is to file an issue in the [issue tracker](https://github.com/bswck/project).
+The best way to send feedback is to file an issue in the [issue tracker](https://github.com/bswck/pj).
 
 If you are proposing a feature:
 
@@ -34,7 +34,7 @@ If you are proposing a feature:
 ## Pull Request guidelines 📝
 1. Initially mark the PR as a draft, so that the maintainers know that you are making final touches.
 
-1. Ensure that the [test coverage](https://coverage-badge.samuelcolvin.workers.dev/redirect/bswck/project) is not decreased. If you add a new feature, please add tests for it. [Read more about coverage](https://coverage.readthedocs.io/en/latest/index.html).
+1. Ensure that the [test coverage](https://coverage-badge.samuelcolvin.workers.dev/redirect/bswck/pj) is not decreased. If you add a new feature, please add tests for it. [Read more about coverage](https://coverage.readthedocs.io/en/latest/index.html).
 
 1. Ensure that all GitHub checks pass. If they are disabled in your PR, ping the maintainers to request enabling them.
 
@@ -42,21 +42,17 @@ If you are proposing a feature:
 
 # Get started! 🕹️
 
-Ready to contribute? Here's a quick guide on how to set up project and make a change.
+Ready to contribute? Here's a quick guide on how to set up pj and make a change.
 
 
 <!--
-This section was generated from bswck/skeleton@bf2dfcf.
+This section was generated from skeleton-ci/skeleton-python@0.0.2rc-210-g3b97536.
 Instead of changing this particular file, you might want to alter the template:
-https://github.com/bswck/skeleton/tree/bf2dfcf/fragments/guide.md
+https://github.com/skeleton-ci/skeleton-python/tree/0.0.2rc-210-g3b97536/fragments/guide.md
 -->
-
 > [!Note]
 > If you use Windows, it is highly recommended to complete the installation in the way presented below through [WSL2](https://learn.microsoft.com/en-us/windows/wsl/install).
-
-
-
-1.  Fork the [project repository](https://github.com/bswck/project) on GitHub.
+1.  Fork the [pj repository](https://github.com/bswck/pj) on GitHub.
 
 1.  [Install Poetry](https://python-poetry.org/docs/#installation).<br/>
     Poetry is an amazing tool for managing dependencies & virtual environments, building packages and publishing them.
@@ -77,8 +73,8 @@ https://github.com/bswck/skeleton/tree/bf2dfcf/fragments/guide.md
 1.  Clone your fork locally and install dependencies.
 
     ```shell
-    git clone https://github.com/your-username/project path/to/project
-    cd path/to/project
+    git clone https://github.com/your-username/pj path/to/pj
+    cd path/to/pj
     poetry env use $(cat .python-version)
     poetry install
     ```
@@ -87,9 +83,8 @@ https://github.com/bswck/skeleton/tree/bf2dfcf/fragments/guide.md
 
     ```shell
     poetry shell
-    pre-commit install --hook-type pre-commit --hook-type pre-push
+    pre-commit install
     ```
-
 
 1.  Create a branch for local development:
 
@@ -108,7 +103,7 @@ https://github.com/bswck/skeleton/tree/bf2dfcf/fragments/guide.md
 1.  Commit your changes and push your branch to GitHub:
 
     ```shell
-    git add .
+    git add -A
     git commit -m "Short description of changes (50 chars max)" -m "Optional extended description"
     git push origin name-of-your-bugfix-or-feature
     ```

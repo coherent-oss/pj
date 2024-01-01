@@ -1,40 +1,53 @@
-# This file was generated from bswck/skeleton@bf2dfcf.
+# This file was generated from skeleton-ci/skeleton-python@0.0.2rc-210-g3b97536.
 # Instead of changing this particular file, you might want to alter the template:
-# https://github.com/bswck/skeleton/tree/bf2dfcf/project/pyproject.toml.jinja
+# https://github.com/skeleton-ci/skeleton-python/tree/0.0.2rc-210-g3b97536/project/pyproject.toml.jinja
 
 [tool.poetry]
-name = "project"
+name = "pj"
 version = "0.0.0"
-description = "Automatically detect backends & initialize virtual environments for your Python repo clones."
-authors = ["bswck <bswck.dev@gmail.com>"]
+description = "Set up projects for development quickly."
+authors = ["bswck <bartoszpiotrslawecki@gmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{ include = "project/" }]
-homepage = "https://github.com/bswck/project"
+packages = [{ include = "pj/" }]
+homepage = "https://github.com/bswck/pj"
+
+[tool.poetry.scripts]
+pj = "pj.__main__:main"
 
 [tool.poetry.urls]
-Documentation = "https://project.readthedocs.io/en/latest/"
-Issues = "https://github.com/bswck/project/issues"
-Distribution = "https://pypi.org/project/project/"
-Coverage = "https://coverage-badge.samuelcolvin.workers.dev/redirect/bswck/project"
+Documentation = "https://pj.readthedocs.io/en/latest/"
+Issues = "https://github.com/bswck/pj/issues"
+Distribution = "https://pypi.org/project/pj/"
+Coverage = "https://coverage-badge.samuelcolvin.workers.dev/redirect/bswck/pj"
 
 [tool.poetry.dependencies]
-python = ">=3.8,<=3.12"
+python = ">=3.8"
 
 [tool.poetry.group.dev.dependencies]
 
 [tool.poetry.group.dev-skeleton.dependencies]
-# This dependency group was generated from bswck/skeleton@bf2dfcf.
+# This dependency group was generated from skeleton-ci/skeleton-python@0.0.2rc-210-g3b97536.
 # Instead of changing this particular file, you might want to alter the template:
-# https://github.com/bswck/skeleton/tree/bf2dfcf/project/pyproject.toml.jinja
-mypy = "^1.7.0"
-ruff = "^0.1.2"
-towncrier = "^23.11.0"
-pytest = "^7.4.3"
-coverage = "^7.3.2"
-poethepoet = "^0.24.3"
-pre-commit = "^3.5.0"
-smokeshow = "^0.4.0"
+# https://github.com/skeleton-ci/skeleton-python/tree/0.0.2rc-210-g3b97536/project/pyproject.toml.jinja
+mypy = ">=1.9.0"
+ruff = ">=0.3.4"
+towncrier = ">=23.11.0"
+coverage = "^7.4.4"
+pytest = "^8.1.1"
+pytest-doctestplus = "^1.2.1"
+covdefaults = ">=2.3.0"
+poethepoet = ">=0.25.0"
+pre-commit = "<3.6.0"
+smokeshow = ">=0.4.0"
+keyring = "^25.0.0"
+
+[tool.pytest.ini_options]
+addopts = "--doctest-modules"
+
+
+
+
 [tool.poetry.group.docs]
 optional = true
 
@@ -46,7 +59,7 @@ mkdocstrings = { version = ">=0.19.0", extras = ["python"] }
 [tool.poe.tasks]
 test = "pytest -v"
 lint = "ruff check ."
-skeleton = "scripts/bf2dfcf.sh"
+skeleton = "scripts/skeleton.0.0.2rc-210-g3b97536.bash"
 check = [
     { ref="test" },
     { ref="lint" },
@@ -55,30 +68,32 @@ release.script = "scripts.release:main"
 
 [tool.poe.tasks.added]
 shell = "towncrier create $TICKET.added.md --edit"
-args = [{name = "TICKET", positional = true}]
+args = [{name = "TICKET", default = "+", positional = true}]
 
 [tool.poe.tasks.changed]
 shell = "towncrier create $TICKET.changed.md --edit"
-args = [{name = "TICKET", positional = true}]
+args = [{name = "TICKET", default = "+", positional = true}]
 
 [tool.poe.tasks.fixed]
 shell = "towncrier create $TICKET.fixed.md --edit"
-args = [{name = "TICKET", positional = true}]
+args = [{name = "TICKET", default = "+", positional = true}]
 
 [tool.poe.tasks.deprecated]
 shell = "towncrier create $TICKET.deprecated.md --edit"
-args = [{name = "TICKET", positional = true}]
+args = [{name = "TICKET", default = "+", positional = true}]
 
 [tool.poe.tasks.removed]
 shell = "towncrier create $TICKET.removed.md --edit"
-args = [{name = "TICKET", positional = true}]
+args = [{name = "TICKET", default = "+", positional = true}]
 
 [tool.poe.tasks.security]
 shell = "towncrier create $TICKET.security.md --edit"
-args = [{name = "TICKET", positional = true}]
+args = [{name = "TICKET", default = "+", positional = true}]
 
 [tool.ruff]
 exclude = ["tests/", "scripts/"]
+
+[tool.ruff.lint]
 # To discuss the presented rationales, contact the author (bswck).
 select = ["ALL"]
 ignore = [
@@ -111,20 +126,20 @@ ignore = [
     "FIX002",
 ]
 
+[tool.ruff.lint.isort]
+required-imports = ["from __future__ import annotations"]
+
 [tool.mypy]
 strict = true
 
-[tool.isort]
-profile = "black"
-
 [tool.towncrier]
-directory = "changes"
-package = "project"
+directory = "news"
+package = "pj"
 filename = "CHANGELOG.md"
 start_string = "<!-- insertion marker -->\n"
 underlines = ["", "", ""]  # We use Markdown
-title_format = "## [{version}](https://github.com/bswck/project/tree/{version}) ({project_date})"
-issue_format = "[#{issue}](https://github.com/bswck/project/issues/{issue})"
+title_format = "## [{version}](https://github.com/bswck/pj/tree/{version}) ({project_date})"
+issue_format = "[#{issue}](https://github.com/bswck/pj/issues/{issue})"
 
 [[tool.towncrier.type]]
 directory = "security"
@@ -156,17 +171,13 @@ directory = "fixed"
 name = "Fixed"
 showcontent = true
 
+[tool.coverage.run]
+plugins = ["covdefaults"]
+source = ["pj/"]
+relative_files = true
+
 [tool.coverage.report]
-omit = ["tests/*"]
-# fail_under = 96
-exclude_also = [
-    # Be sure to include lines that are not meant to be covered
-    # by tests or encountered by the users at runtime.
-    "raise NotImplementedError",          # Do not cover abstract methods.
-    "if ((t|typing)\\.?)?TYPE_CHECKING:", # Do not cover type checking imports.
-    "@((t|typing)\\.?)?overload",         # Do not cover overload definitions.
-    "\\(((t|typing)\\.?)?Protocol\\):$",  # Do not cover entire protocol definitions.
-]
+fail_under = 90
 
 [build-system]
 requires = ["poetry-core"]
